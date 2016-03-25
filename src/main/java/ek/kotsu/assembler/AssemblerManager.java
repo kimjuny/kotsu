@@ -18,15 +18,15 @@ public class AssemblerManager {
     @Autowired
     private List<Assembler> assemblers;
 
-    public Optional<Object> assemble(String input, Class targetObjectType) {
-        if (null == input) {
+    public Optional<Object> assemble(Optional<String> extractedResult, Class targetObjectType) {
+        if (null == extractedResult || !extractedResult.isPresent()) {
             return null;
         }
         Assembler assembler = this.getSupportAssembler(targetObjectType);
         if (null == assembler) {
             throw new SupportAssemblerNotFoundException("No assembler found for " + targetObjectType.getName());
         }
-        return Optional.of(assembler.assemble(input, targetObjectType));
+        return Optional.of(assembler.assemble(extractedResult.get(), targetObjectType));
     }
 
     private Assembler getSupportAssembler(Class clazz) {

@@ -51,7 +51,7 @@ public class RequiredParamResolver implements HandlerMethodArgumentResolver {
         validatorManager.validate(extractedResult, parameter.getParameterName(), strategyAnnotation, nullable, true);
         // 3, assemble
         Class targetObjectType = strategyAnnotationManager.getTargetObjectType(strategyAnnotation);
-        return assemblerManager.assemble(extractedResult.orElse(null), targetObjectType).get();
+        return assemblerManager.assemble(extractedResult, targetObjectType).get();
     }
 
 }

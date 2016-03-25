@@ -51,7 +51,7 @@ public class AbsentParamResolver implements HandlerMethodArgumentResolver {
         validatorManager.validate(extractedResult, parameter.getParameterName(), strategyAnnotation, nullable, false);
         // 3, assemble
         Class targetObjectType = strategyAnnotationManager.getTargetObjectType(strategyAnnotation);
-        return assemblerManager.assemble(extractedResult.orElse(null), targetObjectType);
+        return assemblerManager.assemble(extractedResult, targetObjectType);
     }
 
 }

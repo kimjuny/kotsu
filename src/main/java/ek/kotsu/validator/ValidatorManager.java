@@ -28,7 +28,7 @@ public class ValidatorManager {
             }
             return;
         }
-        if (!input.isPresent()) {
+        if (!input.isPresent() || "null".equals(input.get())) {
             if (!nullable) {
                 throw new SyntaxException("Null value cannot be assigned to " + parameterName + ".");
             }
