@@ -1,7 +1,13 @@
 # Kotsu
 A Spring Web MVC extension.
 
-Tired of modeling inputs for each request? And don't want to remember each specific parameter validation restrictions? Looking for a highly reusable & customizable replacement for Spring/Hibernate Validator? This little Spring extention may bring you a lot help!
+Tired of modeling inputs for each request? 
+
+Don't want to remember each specific parameter validation restrictions? 
+
+Looking for a highly reusable & customizable replacement for Spring/Hibernate Validator? 
+
+This little Spring extention may bring you a lot help!
 
 ### Kotsu Components:
 
