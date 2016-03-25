@@ -7,7 +7,7 @@ A Spring Web MVC extension.
 
 * Looking for a highly flexible & reusable & customizable replacement for Spring/Hibernate Validator? 
 
-This little Spring extention may bring you a lot help!
+This little but powerful Spring extention may bring you a lot help!
 
 ### Kotsu Components:
 
