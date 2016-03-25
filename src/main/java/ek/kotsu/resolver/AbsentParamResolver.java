@@ -1,7 +1,7 @@
 package ek.kotsu.resolver;
 
 import ek.kotsu.assembler.AssemblerManager;
-import ek.kotsu.basic.annotation.MayAbsent;
+import ek.kotsu.basic.annotation.Absent;
 import ek.kotsu.common.StrategyAnnotationManager;
 import ek.kotsu.extractor.ExtractorManager;
 import ek.kotsu.validator.ValidatorManager;
@@ -17,7 +17,7 @@ import java.util.Optional;
 /**
  * Created by Eric Kim on 16/3/23.
  */
-public class MayAbsentParamResolver implements HandlerMethodArgumentResolver {
+public class AbsentParamResolver implements HandlerMethodArgumentResolver {
 
     @Autowired
     private ExtractorManager extractorManager;
@@ -33,14 +33,14 @@ public class MayAbsentParamResolver implements HandlerMethodArgumentResolver {
 
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
-        return parameter.hasParameterAnnotation(MayAbsent.class);
+        return parameter.hasParameterAnnotation(Absent.class);
     }
 
     @Override
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
-        MayAbsent mayAbsent = parameter.getParameterAnnotation(MayAbsent.class);
-        String strategy = mayAbsent.value();
-        boolean nullable = mayAbsent.nullable();
+        Absent absent = parameter.getParameterAnnotation(Absent.class);
+        String strategy = absent.value();
+        boolean nullable = absent.nullable();
         Annotation strategyAnnotation = strategyAnnotationManager.pickStrategyAnnotation(parameter.getParameterAnnotations());
         if (null == strategyAnnotation) {
             strategyAnnotation = strategyAnnotationManager.getStrategyAnnotation(strategy);
