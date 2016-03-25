@@ -1,28 +1,27 @@
 package ek.kotsu.validator;
 
-import ek.kotsu.basic.annotation.VInteger;
+import ek.kotsu.basic.annotation.VFloat;
 import ek.kotsu.basic.struct.ValidResult;
 import org.springframework.stereotype.Component;
 
 import java.lang.annotation.Annotation;
 
 /**
- * Created by Eric Kim on 16/3/23.
+ * Created by Eric Kim on 16/3/25.
  */
 @Component
-public class IntegerValidator implements Validator {
-
+public class FloatValidator implements Validator {
     @Override
     public boolean support(Annotation strategyAnnotation) {
-        return strategyAnnotation.annotationType().equals(VInteger.class);
+        return strategyAnnotation.annotationType().equals(VFloat.class);
     }
 
     @Override
     public ValidResult validate(String input, String parameterName, Annotation strategyAnnotation) {
-        VInteger vInteger = (VInteger) strategyAnnotation;
-        int min = vInteger.min();
-        int max = vInteger.max();
-        if (min > Integer.parseInt(input) || max < Integer.parseInt(input)) {
+        VFloat vFloat = (VFloat) strategyAnnotation;
+        float min = vFloat.min();
+        float max = vFloat.max();
+        if (min > Float.parseFloat(input) || max < Float.parseFloat(input)) {
             return new ValidResult(false, parameterName + " is beyond " + min + " to " + max);
         }
         return new ValidResult(true);
