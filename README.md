@@ -63,4 +63,4 @@ public class TestController {
 
 ### Wiki
 
-For a better knowledge of Kotsu usage and requirements please refer to Kotsu-Wiki.
+For a better knowledge of Kotsu usage and requirements please refer to [Kotsu-Wiki](https://github.com/ronankim/kotsu/wiki).
