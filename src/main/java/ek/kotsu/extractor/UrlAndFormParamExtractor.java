@@ -10,7 +10,7 @@ import java.util.Optional;
  * Created by Eric Kim on 16/2/24.
  */
 @Component
-public class UrlParamExtractor implements Extractor {
+public class UrlAndFormParamExtractor implements Extractor {
 
     @Override
     public boolean support(String contentType) {

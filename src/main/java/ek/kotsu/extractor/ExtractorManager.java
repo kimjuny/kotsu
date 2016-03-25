@@ -19,7 +19,7 @@ public class ExtractorManager {
 
     public Optional<String> extract(NativeWebRequest webRequest, String paramName) throws ContentTypeNotSupportedException {
         // first extract from url parameter
-        Optional<String> urlParamResult = new UrlParamExtractor().extract(webRequest, paramName);
+        Optional<String> urlParamResult = new UrlAndFormParamExtractor().extract(webRequest, paramName);
         if (null != urlParamResult) {
             return urlParamResult;
         }
