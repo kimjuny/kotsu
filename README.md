@@ -5,7 +5,7 @@ A Spring Web MVC extension.
 
 * Don't want to remember every specific parameter validation restrictions? 
 
-* Looking for a highly flexible & reusable & customizable replacement for Spring/Hibernate Validator? 
+* Looking for a highly *flexible* & *reusable* & *customizable* replacement for Spring/Hibernate Validator? 
 
 This little but powerful Spring extention may bring you a lot help!
 
