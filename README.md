@@ -11,7 +11,7 @@ This little but powerful Spring extention may bring you a lot help!
 
 ### Kotsu Components:
 
-1. Extractor: Automatically extracts parameter according to "content-type".
+1. Extractor: Automatically extracts parameter according to "Content-Type" header.
 
 2. Validator: Validates input parameter by simple strategies.
 
