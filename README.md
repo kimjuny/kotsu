@@ -41,7 +41,8 @@ public class TestController {
 
 1. Java 8
 2. Spring Web MVC or Spring Boot
-3. Configuration:
+3. Latest version of Kotsu
+4. Configuration:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
