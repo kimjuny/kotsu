@@ -27,9 +27,9 @@ Each components are reusable & customizable.
 public class TestController {
 
     @RequestMapping(value = "",method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public void api(@Absent("PAGE_IDX") Optional<Integer> pageIdx,
+    public void api(@Absent(Mapper.PAGE_IDX) Optional<Integer> pageIdx,
                     @Absent @VInteger(min = 0, max = 10) Optional<Integer> pageMax,
-                    @Required("MODE") Long mode,
+                    @Required(Mapper.MODE) Long mode,
                     @Required @VString(min = 1, max = 32, regex = "*") String userName) {
 
     }
