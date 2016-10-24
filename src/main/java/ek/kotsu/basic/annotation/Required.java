@@ -15,7 +15,7 @@ public @interface Required {
     /**
      * @return Validation strategy.
      */
-    String value() default "";
+    int value();
 
     /**
      * @return Whether this parameter value can be null.

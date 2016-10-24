@@ -14,7 +14,7 @@ public class UrlAndFormParamExtractor implements Extractor {
 
     @Override
     public boolean support(String contentType) {
-        return true;
+        return contentType == null;
     }
 
     @Override

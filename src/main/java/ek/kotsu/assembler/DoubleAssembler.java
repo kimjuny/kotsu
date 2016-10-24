@@ -2,6 +2,8 @@ package ek.kotsu.assembler;
 
 import org.springframework.stereotype.Component;
 
+import java.text.ParseException;
+
 /**
  * Created by Eric Kim on 16/3/25.
  */
@@ -14,7 +16,7 @@ public class DoubleAssembler implements Assembler {
     }
 
     @Override
-    public Object assemble(String input, Class targetObjectType) {
+    public Object assemble(String input, Class targetObjectType) throws ParseException {
         return Double.valueOf(input);
     }
 

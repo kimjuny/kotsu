@@ -19,9 +19,11 @@ public class JsonParamExtractor implements Extractor {
 
     private static ObjectMapper objectMapper = new ObjectMapper();
 
+    private static final String SUPPORT_CONTENT_TYPE = "application/json";
+
     @Override
     public boolean support(String contentType) {
-        return contentType.toLowerCase().contains("json");
+        return null != contentType && contentType.toLowerCase().contains(SUPPORT_CONTENT_TYPE);
     }
 
     @Override

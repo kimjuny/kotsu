@@ -4,6 +4,7 @@ import ek.kotsu.basic.annotation.VString;
 import ek.kotsu.basic.struct.ValidResult;
 import ek.kotsu.common.InputStringChecker;
 import org.springframework.stereotype.Component;
+
 import java.lang.annotation.Annotation;
 import java.util.Arrays;
 
@@ -19,7 +20,7 @@ public class StringValidator implements Validator {
     }
 
     @Override
-    public ValidResult validate(String input, java.lang.String parameterName, Annotation strategyAnnotation) {
+    public ValidResult validate(String input, String parameterName, Annotation strategyAnnotation) {
         VString vString = (VString) strategyAnnotation;
         int max = vString.max();
         int min = vString.min();

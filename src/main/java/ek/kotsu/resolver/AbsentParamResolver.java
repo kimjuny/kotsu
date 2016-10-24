@@ -11,6 +11,7 @@ import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
+
 import java.lang.annotation.Annotation;
 import java.util.Optional;
 
@@ -39,7 +40,7 @@ public class AbsentParamResolver implements HandlerMethodArgumentResolver {
     @Override
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
         Absent absent = parameter.getParameterAnnotation(Absent.class);
-        String strategy = absent.value();
+        int strategy = absent.value();
         boolean nullable = absent.nullable();
         Annotation strategyAnnotation = strategyAnnotationManager.pickStrategyAnnotation(parameter.getParameterAnnotations());
         if (null == strategyAnnotation) {

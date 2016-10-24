@@ -15,7 +15,7 @@ public @interface Absent {
     /**
      * @return validation strategy.
      */
-    String value() default "";
+    int value();
 
     /**
      * @return whether this parameter is nullable.

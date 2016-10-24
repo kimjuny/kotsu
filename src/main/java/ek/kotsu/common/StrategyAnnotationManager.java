@@ -19,7 +19,7 @@ public class StrategyAnnotationManager {
     @Autowired
     private StrategyMapper strategyMapper;
 
-    private Map<String, Annotation> mapper = new HashMap<>();
+    private Map<Integer, Annotation> mapper = new HashMap<>();
 
     private boolean isCustomValid(Annotation annotation) {
         Annotation[] annotationsOfAnnotation = annotation.annotationType().getAnnotations();
@@ -32,20 +32,21 @@ public class StrategyAnnotationManager {
     }
 
     @PostConstruct
-    public void init() {
+    public void init() throws IllegalAccessException {
         Class clazz = strategyMapper.getClass();
         Field[] fields = clazz.getDeclaredFields();
         for (Field field : fields) {
             Annotation[] annotations = field.getAnnotations();
             for (Annotation annotation : annotations) {
                 if (isCustomValid(annotation)) {
-                    mapper.put(field.getName(), annotation);
+                    field.setAccessible(true);
+                    mapper.put((Integer) field.get(null), annotation);
                 }
             }
         }
     }
 
-    public Annotation getStrategyAnnotation(String strategy) {
+    public Annotation getStrategyAnnotation(int strategy) {
         return mapper.get(strategy);
     }
 
@@ -66,7 +67,7 @@ public class StrategyAnnotationManager {
         return null != annotation.annotationType().getAnnotation(CustomValid.class);
     }
 
-    public Class getTargetObjectType(String strategy) {
+    public Class getTargetObjectType(int strategy) {
         Annotation strategyAnnotation = getStrategyAnnotation(strategy);
         return getTargetObjectType(strategyAnnotation);
     }

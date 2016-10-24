@@ -1,11 +1,10 @@
 package ek.kotsu.assembler;
 
 import ek.kotsu.basic.exception.SupportAssemblerNotFoundException;
-import ek.kotsu.common.StrategyAnnotationManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.lang.annotation.Annotation;
+import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +17,7 @@ public class AssemblerManager {
     @Autowired
     private List<Assembler> assemblers;
 
-    public Optional<Object> assemble(Optional<String> extractedResult, Class targetObjectType) {
+    public Optional<Object> assemble(Optional<String> extractedResult, Class targetObjectType) throws ParseException {
         if (null == extractedResult || !extractedResult.isPresent()) {
             return null;
         }
